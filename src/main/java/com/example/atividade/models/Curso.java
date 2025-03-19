@@ -3,6 +3,8 @@ package com.example.atividade.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,7 @@ public class Curso {
     private String nome;
 
     @OneToMany(mappedBy = "curso")
+    @JsonIgnore
     private List<Aluno> alunos = new ArrayList<>();
 
     public Curso(Integer id, String nome) {
